@@ -1,22 +1,19 @@
 import './App.css';
 import Photo from './components/Photo';
 import SearchForm from './components/SearchForm';
+// import Nav from './components/Nav';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          App.js is the container component for the other apps.
-        </a>
-      </header>
+      {/* <header className="App-header">
+        
+      </header> */}
       <SearchForm />
+      {/* <Nav /> */}
       <Photo />
+      
+      
     </div>
   );
 }
