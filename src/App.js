@@ -1,22 +1,29 @@
+import React from 'react';
+import {
+  BrowserRouter
+} from 'react-router-dom';
+
+
 import './App.css';
 import Photo from './components/Photo';
 import SearchForm from './components/SearchForm';
-// import Nav from './components/Nav';
+import Nav from './components/Nav';
 
-function App() {
-  return (
+const App = () => (
+  <BrowserRouter>
     <div className="App">
       {/* <header className="App-header">
         
       </header> */}
       <SearchForm />
-      {/* <Nav /> */}
+      <Nav />
       <Photo />
       
       
     </div>
+    </BrowserRouter>
   );
-}
+
 
 
 
