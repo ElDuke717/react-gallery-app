@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Nav = () => (
     <nav className="main-nav">
         <ul className="main-nav">
-            <li><Link to="">Puppies</Link></li>
-            <li><Link to="">Dogs</Link></li>
-            <li><Link to="">Senior Dogs</Link></li>
+            <li><Link to="">🐶Puppies</Link></li>
+            <li><Link to="">🐕 Dogs</Link></li>
+            <li><Link to="">🙀 CATS! </Link></li>
         </ul>
     </nav>
     //  {/* Write routes here... */}

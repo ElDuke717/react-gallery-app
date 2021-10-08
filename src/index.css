@@ -2,6 +2,7 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
+  background-color: #a0dd6f;
 }
 
 h2 {
@@ -27,7 +28,7 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+  background-color: #73797c;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
@@ -52,16 +53,18 @@ input {
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+  background: #73797c;
   border-radius: 3px;
   padding: 5px;
-  color: #fff;
+  color: #eb8b0d;
+  /* height: 50px; */
+  /* width: 100px; */
 }
 
 .main-nav .active,
 .main-nav a:hover,
 .search-form button:hover {
-  background-color: #275270;
+  background-color: #494b4d;
 }
 
 .photo-container ul {
@@ -77,6 +80,8 @@ input {
   height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
+  border-radius: 2%;
+  box-shadow: 2px 2px 2px #494b4d;
 }
 
 .photo-container ul img {
@@ -92,6 +97,34 @@ input {
 .photo-container .not-found {
   width: 100%;
 }
+
+.results-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+
+}
+
+hr.divider {
+  margin: auto;
+  width: 75%;
+}
+
+.results-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+
+}
+
+.results-footer h2{
+  width: 115.6px;
+}
+
 
 @media only screen and (max-width: 767px)  {
   body {

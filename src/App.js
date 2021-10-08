@@ -10,13 +10,16 @@ import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 
 const App = () => (
+  
   <BrowserRouter>
+    <h1>The Pet Picture Finder</h1>
     <div className="App">
       {/* <header className="App-header">
         
       </header> */}
       <SearchForm />
       <Nav />
+      {/* <hr className="divider"/> */}
       <Photo />
       
       
