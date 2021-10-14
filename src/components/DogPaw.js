@@ -1,5 +1,7 @@
 import * as React from "react"
 
+//SVGR tool was used to convert svg code to a react component.
+
 function DogPaw(props) {
   return (
     <svg

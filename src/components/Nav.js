@@ -1,17 +1,21 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 
 
 const Nav = () => (
+    <div className="photo-search-nav">
     <nav className="main-nav">
         <ul className="main-nav">
-            <li><Link to="">🐶Puppies</Link></li>
-            <li><Link to="">🐕 Dogs</Link></li>
-            <li><Link to="">🙀 CATS! </Link></li>
+            <li><NavLink exact to="/">🏠 Home</NavLink></li>
+            <li><NavLink to="/Puppies">🐶Puppies</NavLink></li>
+            <li><NavLink to="/Dogs">🐕 Dogs</NavLink></li>
+            <li><NavLink to="/Cats">🙀 Cats </NavLink></li>
         </ul>
     </nav>
-    //  {/* Write routes here... */}
+   
+    </div>
 );
+
 
 
 

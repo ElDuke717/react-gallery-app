@@ -25,7 +25,7 @@ export default class SearchForm extends Component {
                onChange={this.onSearchChange}
                name="search" 
                ref={(input) => this.query = input}
-               placeholder="Search for doggos here..." />
+               placeholder="Type in your search here and press the paw to start" />
         <button type="submit" id="submit" className="search-button">
          <DogPaw width={20} height={20} fill={'#eb8b0d'}/>
         </button>
@@ -34,4 +34,6 @@ export default class SearchForm extends Component {
   }
   
 }
+
+
 

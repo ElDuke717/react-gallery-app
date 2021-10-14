@@ -3,15 +3,17 @@ import DogPaw from './DogPaw';
 //import NotFound from './NotFound';
 
 
-const Photo = () => {
+const Photo = (props) => {
+  console.log(props);
   const pawColor =   '#3f4850';
   const pawHeight = 80;
   const pawWidth = 80; 
+  
   return(
-      <div class="photo-container">
+      <div className="photo-container">
           <header className="results-header">
           <DogPaw width={pawWidth} height={pawHeight} fill={pawColor} />
-          <h2>Results</h2>
+          <h2>{props.title}</h2>
           <DogPaw width={pawWidth} height={pawHeight} fill={pawColor} />
           </header>
           <ul>
@@ -22,10 +24,19 @@ const Photo = () => {
               <img src="https://farm5.staticflickr.com/4342/36338751244_316b6ee54b.jpg" alt="" />
             </li>
             <li>
-              <img src="https://farm5.staticflickr.com/4343/37175099045_0d3a249629.jpg" alt="" />
+              <img src="//live.staticflickr.com/4556/26788324059_543c4b522d_c.jpg" alt="" />
             </li>
             <li>
               <img src="https://farm5.staticflickr.com/4425/36337012384_ba3365621e.jpg" alt="" />
+            </li>
+            <li>
+              <img src="https://live.staticflickr.com/1301/790128327_6acd9abff8_n.jpg" alt="" />
+            </li>
+            <li>
+              <img src="https://live.staticflickr.com/2720/4509159427_8cf8135ed8_k.jpg" alt="" />
+            </li>
+            <li>
+              <img src="https://live.staticflickr.com/65535/51562588693_8661af490e_h.jpg" alt="" />
             </li>
             
           </ul>

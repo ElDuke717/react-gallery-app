@@ -125,6 +125,16 @@ hr.divider {
   width: 115.6px;
 }
 
+.flickr-logo{
+  height: 50px;
+  width: 175px;
+}
+
+.flickr-logo-bnw{
+  height: 27.5px;
+  width: 96.25px;
+}
+
 
 @media only screen and (max-width: 767px)  {
   body {
