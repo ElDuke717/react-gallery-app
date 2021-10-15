@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, NavLink, Link } from 'react-router-dom';
-import Photo from './Photo'
+import Photo from './Photos'
 import axios from 'axios';
 import config from './config'
 

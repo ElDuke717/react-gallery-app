@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Photo from './Photo';
+import Photos from './Photos';
 
 class Dogs extends Component {    
   
@@ -11,7 +11,7 @@ class Dogs extends Component {
         <p>Dogs are fun but they are a lot of responsibility!</p>
         <p>Enjoy these photos and consider adopting a new friend from your local shelter or breed-specific rescue.</p>
         
-        <Photo title="🐕 Dogs 🐩"/>
+        <Photos title="🐕 Dogs 🐩" pics={this.props.pics}/>
       </div>
     );
   }
