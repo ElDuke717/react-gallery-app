@@ -11,8 +11,6 @@ const Photos = (props) => {
   const pawWidth = 80; 
 
   const results = props.pics;
-  //console.log(results);
-  //console.log(results[0]);
   let photo;
   if (results.length > 0) {
     photo = results.map(pic =>
