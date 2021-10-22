@@ -24,26 +24,67 @@ export default class App extends Component {
     constructor(props) {
       super(props);
 
-    //this.changeTags = this.changeTags.bind(this);
-
       this.state = {
         pics: [],
-        tags:  'pets',
+        puppyPics: [],
+        dogPics: [],
+        catPics: [],
         loading: true
       };
     }
 
-    stateMaker = () => {}
-
     componentDidMount() {
-      this.getPics();
+      this.getPics('pets');
+      this.getPuppies( 'puppies' );
+      this.getDogs('dogs');
+      this.getCats('cats');
+      // this.searchPics()
     }
 
-    getPics() {
-      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${this.state.tags}&per_page=24&format=json&nojsoncallback=1`)
+    getPics( query ) {
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({ 
            pics: response.data.photos.photo,
+           loading: false
+        });
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
+    }
+
+    getPuppies( query ) {
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+      .then(response => {
+        this.setState({ 
+           puppyPics: response.data.photos.photo,
+           loading: false
+        });
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
+    }
+
+    getDogs( query ) {
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+      .then(response => {
+        this.setState({ 
+           dogPics: response.data.photos.photo,
+           loading: false
+        });
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
+    }
+
+    getCats( query ) {
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+      .then(response => {
+        this.setState({ 
+           catPics: response.data.photos.photo,
            loading: false
         });
       })
@@ -70,12 +111,10 @@ export default class App extends Component {
           :
           <Switch>
             <Route exact path="/" render={ () => <Home pics={this.state.pics}   /> } />
-            <Route path="/puppies" render={ () => <Puppies pics={this.state.pics} 
-            // tags ={ this.setState({tags: 'puppies'  })}
-
-            /> } />
-            <Route path="/dogs" render={ () => <Dogs pics={this.state.pics}/>} />
-            <Route path="/cats" render={ () => <Cats pics = {this.state.pics}/> } />
+            <Route path="/puppies" render={ () => <Puppies pics={this.state.puppyPics} /> } />
+            <Route path="/dogs" render={ () => <Dogs pics={this.state.dogPics}/>} />
+            <Route path="/cats" render={ () => <Cats pics = {this.state.catPics}/> } />
+            <Route path="/Search" render={ () => <Home pics = {this.state.catPics}/> } />
           </Switch>
         }
       </div>

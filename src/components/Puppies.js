@@ -11,7 +11,7 @@ class Puppies extends Component {
         <p>Puppies are a ton of fun and very lovalble but they are also a lot of responsibility!</p>
         <p>Enjoy these photos and consider adopting a new friend from your local shelter or breed-specific rescue.</p>
     
-        <Photos title = "🐶 Puppies 💗" pics={this.props.pics} tags={this.props.tags}/>
+        <Photos title = "🐶 Puppies 💗" pics={this.props.pics} />
       </div>
     );
   }
