@@ -5,7 +5,6 @@ import flickrLogo from './flickr-logo-color.png'
 class Home extends Component {    
   
   render() {
-    console.log(this.props)
     return (
       <div className="main-content home">
         <h3>This is a fun tool for looking up pet pictures on the photo-sharing site,</h3>

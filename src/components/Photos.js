@@ -4,12 +4,12 @@ import DogPaw from './DogPaw';
 import NotFound from './NotFound';
 import Photo from './Photo'
 
+
 const Photos = (props) => {
-  console.log(props);
   const pawColor =   '#3f4850';
   const pawHeight = 80;
   const pawWidth = 80; 
-
+  
   const results = props.pics;
   let photo;
   if (results.length > 0) {
@@ -19,7 +19,7 @@ const Photos = (props) => {
   } else {
     photo = <NotFound />
   }
-  
+
   return(
       <div className="photo-container">
           <header className="results-header">

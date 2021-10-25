@@ -4,7 +4,6 @@ import Photos from './Photos';
 class Dogs extends Component {    
   
   render() {
-    console.log(this.props);
     return (
       <div className="main-content home">
         <h2>Here are some fun pictures of <em>Dogs!</em></h2>

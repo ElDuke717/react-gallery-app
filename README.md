@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## This is the seventh project in Full Stack JavaScript Techdegree
+## This is the seventh project in the Treehouse Full Stack JavaScript Techdegree
 
 In the project directory, you can run:
 
