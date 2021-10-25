@@ -4,6 +4,7 @@ import Photos from './Photos';
 class Results extends Component {    
   
   render() {
+    console.log(this.props);
     console.log(this.props.pics);
     return (
       <div className="main-content home">    
