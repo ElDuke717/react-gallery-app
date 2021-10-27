@@ -9,7 +9,6 @@ import axios from 'axios';
 
 //App components
 import './App.css';
-// import Photo from './components/Photo';
 import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import config from './components/config';
@@ -18,6 +17,7 @@ import Cats from './components/Cats';
 import Dogs from './components/Dogs';
 import Puppies from './components/Puppies';
 import Results from './components/Results'
+import FourOFour from './components/FourOFour';
 import flickrLogoBW from './components/flickr-logo-bnw.png'
 
 
@@ -38,13 +38,13 @@ export default class App extends Component {
       };
     }
 
-
+    
     componentDidMount() {
       this.getPics('pets');
       this.getPuppies( 'puppies' );
       this.getDogs('dogs');
       this.getCats('cats');
-      this.searchPics( );
+      this.searchPics('pets' );
     }
 
     getPics( query ='pets'  ) {
@@ -99,12 +99,14 @@ export default class App extends Component {
       });
     }
 
-    searchPics( query ) {
+    searchPics( query = 'pets') {
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({ 
+           pics: response.data.photos.photo,
            searchPics: response.data.photos.photo,
-           loading: false
+           loading: false,
+           searchTerm: query,
         });
       })
       .catch(error => {
@@ -113,7 +115,7 @@ export default class App extends Component {
     }
   
   render() {
-    console.log(this.state.searchPics);
+    console.log(this.state.searchTerm);
     return (
     <BrowserRouter>
       <h1 className = "main-title"><a href="www.flickr.com" target="_blank " rel="noopener noreferrer"><img src={flickrLogoBW} className ="flickr-logo-bnw" alt="Flickr logo"/></a> Pet Picture Finder</h1>
@@ -127,11 +129,12 @@ export default class App extends Component {
           ? <p className="loading">Loading...</p>
           :
           <Switch>
-            <Route exact path="/" render={ () => <Home pics={this.state.pics}   /> } />
+            <Route exact path="/" render={ () => <Home pics={this.state.pics} title ={this.state.searchTerm}  /> } />
             <Route path="/puppies" render={ () => <Puppies pics={this.state.puppyPics} /> } />
             <Route path="/dogs" render={ () => <Dogs pics={this.state.dogPics}/>} />
             <Route path="/cats" render={ () => <Cats pics = {this.state.catPics}/> } />
-            <Route path="/results" render={ () => <Results pics = {this.state.searchPics}  searchTerm = {this.searchPics}/> } />
+            <Route path="/results" render={ () => <Results pics = {this.state.searchPics} /> } />
+            <Route component={FourOFour}/>
           </Switch>
         }
       </div>
