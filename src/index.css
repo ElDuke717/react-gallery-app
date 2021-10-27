@@ -126,6 +126,7 @@ hr.divider {
 }
 
 .flickr-logo{
+  margin: 10px;
   height: 50px;
   width: 175px;
 }

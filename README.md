@@ -1,8 +1,9 @@
 # React Gallery App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## This is the seventh project in the Treehouse Full Stack JavaScript Techdegree and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## This is the seventh project in the Treehouse Full Stack JavaScript Techdegree
+
+## Please follow the notes below for functionality and layout.
 
 In the project directory, you can run:
 
