@@ -17,7 +17,7 @@ You will also see any lint errors in the console.
 
 ## General Notes
 
-Please note that this project is built from both stateless and stateful components.  State is used independently in the `App.js` component and the `SearchForm.js` component.
+This project is built from both stateless and stateful components.  State is used independently in the `App.js` component and the `SearchForm.js` component.
 
 The `NotFound` component will show up if a Flickr API query comes back without results.  This can be challenging to find as Flickr has many photos - typing in the query "norwegian toothpaste" or "rusty sailboats" will have no result and show the `NotFound` component.
 
@@ -32,7 +32,9 @@ This will allow you to run the app using your own private key.
 
 ## Routes
 
-Note that the project has four routes:  **Home**, **Puppies**, **Dogs** and **Cats**.  The default setting for **Home** is to return photos from Flickr with the tags "pets".  Also, the search box will return results on the **Home** route.  You may search for topic from the search bar in other routes, but the **Home** route is where they will show up.  
+Note that the project has four routes:  **Home**, **Puppies**, **Dogs** and **Cats**.  The default setting for **Home** is to return photos from Flickr with the tags "pets".  Also, the search box will return results on the **Home** route.  
+
+You may search for a topic from the search bar in other routes and the app will reroute you to the **Results** route.  Note that both **Home** and **Results** with both show results for your search. 
 
 The title for each route will show up above the photos and is rendered via props for each.
 
