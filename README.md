@@ -46,6 +46,8 @@ Data requests are made using Axios.  Note that there are five separate data requ
 
 Please note that the display is limited to 24 photos per query.  Each photo receives a specific key as assigned by the Flickr API using the id attribute assigned to each photo and delivered as part of the request.
 
+Each photo can be clicked on and it will take the user to the photo's originating Flickr page.
+
 ## CSS styling
 
 Numerous unique styling attributes have been added to the project to make is unique.  The official Flickr logo has been used twice and formatted and sized appropriately so that it fits into the flow of the surrounding text.  The text and backgound have been given unique colors and emojis have been added to keep the page interesting.  

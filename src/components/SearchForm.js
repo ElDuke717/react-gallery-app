@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+//import { NavLink } from 'react-router-dom';
 import DogPaw from './DogPaw';
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
   
   state = {
     searchText: ''
@@ -15,6 +16,7 @@ export default class SearchForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.query.value);
+    this.props.history.push('/results');
     e.currentTarget.reset();
   }
   
@@ -28,7 +30,7 @@ export default class SearchForm extends Component {
                ref={(input) => this.query = input}
                placeholder="Type in your search and press the paw" />
         <button type="submit" id="submit" className="search-button">
-         <DogPaw width={20} height={20} fill={'#eb8b0d'}/>
+        <DogPaw width={20} height={20} fill={'#eb8b0d'}/>
         </button>
       </form>      
     );
@@ -36,5 +38,5 @@ export default class SearchForm extends Component {
   
 }
 
-
+export default withRouter(SearchForm);
 
