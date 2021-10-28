@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-//import { NavLink } from 'react-router-dom';
+
 import DogPaw from './DogPaw';
 
 class SearchForm extends Component {
@@ -16,6 +16,7 @@ class SearchForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.query.value);
+    //code below causes the page to redirect when the search is entered.
     this.props.history.push('/results');
     e.currentTarget.reset();
   }
@@ -38,5 +39,6 @@ class SearchForm extends Component {
   
 }
 
+//export is used here so withRouter can be used for SearchForm
 export default withRouter(SearchForm);
 
