@@ -22,7 +22,7 @@ const Photos = (props) => {
   } else {
     photo = <NotFound />
   }
-
+ 
   return(
       <div className="photo-container">
           <header className="results-header">

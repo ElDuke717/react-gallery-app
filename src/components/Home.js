@@ -8,9 +8,9 @@ class Home extends Component {
     return (
       <div className="main-content home">
         <h3>This is a fun tool for looking up pet pictures on the photo-sharing site,</h3>
-        <img src={flickrLogo} className ="flickr-logo" alt="Flickr logo"/>
+        <a href={`https://www.flickr.com`} target="_blank " rel="noopener noreferrer"><img src={flickrLogo} className ="flickr-logo" alt="Flickr logo"/></a>
         <p>It uses the Flickr API to find photos of pets or whatever you put in the search box above.</p>
-        <Photos title={`🐟🐢🦎 Results for: ${this.props.title} 🐇🐈🐕`} pics={this.props.pics} />
+        <Photos title={`🐟🐢🦎 Here are some photos of ${this.props.title}. 🐇🐈🐕`} pics={this.props.pics} />
 
       </div>
     );

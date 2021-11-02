@@ -8,7 +8,6 @@ body {
 h2 {
   font-size: 2em;
   margin: 52px 0 40px;
-  text-transform: capitalize;
 }
 
 ul {
@@ -98,6 +97,19 @@ input {
   width: 100%;
 }
 
+.not-found {
+  box-shadow: none;
+  margin: 50px;
+}
+
+.not-found  h1 {
+  font-size: 50px;
+}
+
+.not-found  p {
+  font-size: 25px;
+}
+
 .results-header {
   display: flex;
   flex-direction: row;
@@ -143,10 +155,16 @@ hr.divider {
 }
 
 .fourofour {
-  list-style-type: none;
   margin-top: 100px;
 }
 
+.fourofour p {
+  font-size: 25px;
+}
+
+.fourofour h1 {
+  font-size: 75px;
+}
 
 @media only screen and (max-width: 767px)  {
   body {

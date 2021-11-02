@@ -5,10 +5,10 @@ import Photos from './Photos';
 class Results extends Component {    
   
   render() {
-    console.log(this.props.pics);
+      
     return (
       <div className="main-content home">    
-        <Photos title = {`Search Results for ${this.props.title} `} pics={this.props.pics} />
+        <Photos title = {`Here are some photos of ${this.props.title}. `} pics={this.props.pics} />
       </div>
     );
   }

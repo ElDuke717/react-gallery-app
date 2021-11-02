@@ -5,6 +5,7 @@ import {
   Switch
 } from 'react-router-dom';
 import axios from 'axios';
+//import { useHistory  } from 'react-router-dom';
 
 
 //App component imports
@@ -16,7 +17,8 @@ import Home from './components/Home';
 import Cats from './components/Cats';
 import Dogs from './components/Dogs';
 import Puppies from './components/Puppies';
-import Results from './components/Results'
+import Results from './components/Results';
+//import Guil from './components/Guil';
 import FourOFour from './components/FourOFour';
 import flickrLogoBW from './components/flickr-logo-bnw.png'
 
@@ -117,10 +119,15 @@ export default class App extends Component {
     }
   
   render() {
-    console.log(this.state.searchTerm);
+    //console.log(this.state.searchTerm);
+    //let searchTerm = this.state.searchTerm;
+    //console.log(searchTerm);
+    //When the history API is logged to the console, it gives you an object that gives information - the length and a bunch of other things I don't understand. 
+    //console.log(window.history);
+ 
     return (
     <BrowserRouter>
-      <h1 className = "main-title"><a href="www.flickr.com" target="_blank " rel="noopener noreferrer"><img src={flickrLogoBW} className ="flickr-logo-bnw" alt="Flickr logo"/></a> Pet Picture Finder</h1>
+      <h1 className = "main-title"><a href={`https://www.flickr.com`} target="_blank " rel="noopener noreferrer"><img src={flickrLogoBW} className ="flickr-logo-bnw" alt="Flickr logo"/></a> Pet Picture Finder</h1>
       <div className="App">
         
         {/* SearchForm component adds search and calls searchPics when query term is entered */}
@@ -130,7 +137,8 @@ export default class App extends Component {
         <Nav />
 
         {
-          (this.state.loading)
+          //Logic for loading page - initial state is loading, as is any time that the searchTerm is undefined, otherwise, the appropriate route is rendered.
+          (this.state.loading) || (this.state.searchTerm === undefined)
           ? <p className="loading">Loading...</p>
           :
           <Switch>
@@ -139,7 +147,9 @@ export default class App extends Component {
             <Route path="/puppies" render={ () => <Puppies pics={this.state.puppyPics} /> } />
             <Route path="/dogs" render={ () => <Dogs pics={this.state.dogPics}/>} />
             <Route path="/cats" render={ () => <Cats pics = {this.state.catPics}/> } />
-            <Route path="/results" render={ () => <Results pics = {this.state.searchPics} title ={this.state.searchTerm}/> } />
+            {/* exact path to /results is necessary in case the user hits submit in search without providing a search term */}
+            <Route exact path="/results" render={ () => <Results pics = {this.state.searchPics} title ={this.state.searchTerm}/> } />
+            <Route path="/results/:query" render={ () => <Results pics={this.state.pics} title ={this.state.searchTerm}/> } />
             {/* FourOFour is for URLs that do not match a route */}
             <Route component={FourOFour}/>
           </Switch>

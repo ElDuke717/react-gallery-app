@@ -7,14 +7,14 @@ const FourOFour = () => {
     const pawWidth = 100; 
     return (
    
-    <li className="fourofour">
+    <div className="fourofour">
     
     <DogPaw width={pawWidth} height={pawHeight} fill={pawColor} />
     <h1><strong>404</strong></h1>
-    <h3>Page Not Found</h3>
+    <h2>Page Not Found</h2>
 
     <p>This page could not be found.</p>
-  </li>
+  </div>
 );
 }
 
