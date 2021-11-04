@@ -63,7 +63,7 @@ The app has been tested in the latest versions of Chrome, Firefox and Microsoft 
 
 ## Exceeds Criteria
 
-1. Browser Navigation works for the Search Route: **working on this**
+1. Browser Navigation works for the Search Route: the URL paths are set-up with ```componentWillUpdate()``` so that the pictures shown are from a query that matches the current URL.
 
 2. 404 Error - when a URL does not match an existing route, a helpful 404 message is displayed with a red dog paw element to let the user know the entered URL does not exist.
 

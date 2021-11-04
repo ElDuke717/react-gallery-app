@@ -18,7 +18,6 @@ import Cats from './components/Cats';
 import Dogs from './components/Dogs';
 import Puppies from './components/Puppies';
 import Results from './components/Results';
-//import Guil from './components/Guil';
 import FourOFour from './components/FourOFour';
 import flickrLogoBW from './components/flickr-logo-bnw.png'
 
@@ -28,6 +27,7 @@ export default class App extends Component {
 
     constructor(props) {
       super(props);
+      //I need to explain why this is necessary.
       this.searchPics = this.searchPics.bind(this);
 
       //State contains empty arrays that are updated when Flickr API queries are run.  It also contains logic for the loading display.
@@ -119,12 +119,9 @@ export default class App extends Component {
     }
   
   render() {
-    //console.log(this.state.searchTerm);
-    //let searchTerm = this.state.searchTerm;
-    //console.log(searchTerm);
+    //console.log('App.js renders');
     //When the history API is logged to the console, it gives you an object that gives information - the length and a bunch of other things I don't understand. 
-    //console.log(window.history);
- 
+    //render is called 5x when the app loads because there are 5 API calls.  This means that SearchForm will run 5x when the app is rendered.
     return (
     <BrowserRouter>
       <h1 className = "main-title"><a href={`https://www.flickr.com`} target="_blank " rel="noopener noreferrer"><img src={flickrLogoBW} className ="flickr-logo-bnw" alt="Flickr logo"/></a> Pet Picture Finder</h1>
