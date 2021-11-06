@@ -13,7 +13,7 @@ const Photos = (props) => {
   const pawColor3 = '#4c440a';
   const pawHeight = 80;
   const pawWidth = 80; 
- console.log(props)
+ 
   const results = props.pics;
   let photo;
   if (results.length > 0) {

@@ -19,7 +19,6 @@ class SearchForm extends Component {
     //code below causes the page to redirect to the search results when the search is entered. See https://gist.github.com/elitan/5e4cab413dc201e0598ee05287ee4338 for explanation.
     this.props.history.push(`/results/${this.query.value}`);
     e.currentTarget.reset();
-    console.log(this.query.value);
   }
 
   //componentDidUpdate runs each time SearchForm is rendered, which is 5x initially due to 5 API calls.

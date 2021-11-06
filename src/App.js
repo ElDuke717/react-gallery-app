@@ -112,7 +112,6 @@ export default class App extends Component {
            loading: false,
            searchTerm: query,
         });
-        console.log('searchPics runs')
       })
       .catch(error => { 
         console.log('Error fetching and parsing data', error);
@@ -125,7 +124,7 @@ export default class App extends Component {
     //console.log(this.state)
     //console.log(`pics.length: ${this.state.pics.length}`);
     //require('log-timestamp');
-    console.log(`seachPics.length: ${this.state.searchPics.length}`);
+    //console.log(`seachPics.length: ${this.state.searchPics.length}`);
     
     return (
     <BrowserRouter>
