@@ -32,9 +32,9 @@ This will allow you to run the app using your own private key.
 
 ## Routes
 
-Note that the project has four routes:  **Home**, **Puppies**, **Dogs** and **Cats**.  The default setting for **Home** is to return photos from Flickr with the tags "pets".  Also, the search box will return results on the **Home** route.  
+Note that the project has four routes:  **Home**, **Puppies**, **Dogs** and **Cats**.  The default setting for **Home** is to return photos from Flickr with the tags "pets".  
 
-You may search for a topic from the search bar in other routes and the app will reroute you to the **Results** route.  Note that both **Home** and **Results** with both show results for your search. 
+You may search for a topic from the search bar in other routes and the app will reroute you to the **Results** route.  
 
 The title for each route will show up above the photos and is rendered via props for each.
 
@@ -43,6 +43,13 @@ Note also that the title in the home route will update the title dynamically to 
 ## Data Requests 
 
 Data requests are made using Axios.  Note that there are five separate data requests - one for **Home** to get the initial pics, and one each for the other routes (e.g. `getPuppies` amd so on) as well as a separate request for searches.  The first four queries are run when the app is loaded, the `searchPics` query is run when an item is entered into the search bar.  
+
+
+## Loading indicators
+
+There are two separate loading indicators in this app.  The first is in ```App.js``` and is conditional based on state, the default/intitial state is ```loading: true``` and is updated to ```loading: false``` when the axios ```fetch``` methods run.  
+
+The second is a component ```Loading.js``` that is rendered based on logic in ```Photos.js```.  This loading view will show up for results while they initially load from Flickr when the app is first loaded.
 
 ## Displaying photos
 

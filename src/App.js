@@ -5,7 +5,6 @@ import {
   Switch
 } from 'react-router-dom';
 import axios from 'axios';
-//import { useHistory  } from 'react-router-dom';
 
 
 //App component imports
@@ -47,7 +46,7 @@ export default class App extends Component {
       this.getPuppies( 'puppies' );
       this.getDogs('dogs');
       this.getCats('cats');
-      this.searchPics('pets' );
+      //this.searchPics('pets' );
     }
     //getPics for Home route initially - default set to 'pets'
     getPics( query ='pets'  ) {
@@ -55,7 +54,8 @@ export default class App extends Component {
       .then(response => {
         this.setState({ 
            pics: response.data.photos.photo,
-           loading: false
+           loading: false,
+           defaultTerm: 'pets'
         });
       })
       .catch(error => {
@@ -107,21 +107,26 @@ export default class App extends Component {
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({ 
-           pics: response.data.photos.photo,
+           //pics: response.data.photos.photo,
            searchPics: response.data.photos.photo,
            loading: false,
            searchTerm: query,
         });
+        console.log('searchPics runs')
       })
-      .catch(error => {
+      .catch(error => { 
         console.log('Error fetching and parsing data', error);
       });
     }
   
   render() {
-    //console.log('App.js renders');
     //When the history API is logged to the console, it gives you an object that gives information - the length and a bunch of other things I don't understand. 
     //render is called 5x when the app loads because there are 5 API calls.  This means that SearchForm will run 5x when the app is rendered.
+    //console.log(this.state)
+    //console.log(`pics.length: ${this.state.pics.length}`);
+    //require('log-timestamp');
+    console.log(`seachPics.length: ${this.state.searchPics.length}`);
+    
     return (
     <BrowserRouter>
       <h1 className = "main-title"><a href={`https://www.flickr.com`} target="_blank " rel="noopener noreferrer"><img src={flickrLogoBW} className ="flickr-logo-bnw" alt="Flickr logo"/></a> Pet Picture Finder</h1>
@@ -135,18 +140,19 @@ export default class App extends Component {
 
         {
           //Logic for loading page - initial state is loading, as is any time that the searchTerm is undefined, otherwise, the appropriate route is rendered.
-          (this.state.loading) || (this.state.searchTerm === undefined)
+          (this.state.loading)  
+         //|| (this.state.searchPics.length === 0) 
           ? <p className="loading">Loading...</p>
           :
           <Switch>
           {/* The home route "/" renders the home view and dynamically updates the title based on the search term */}
-            <Route exact path="/" render={ () => <Home pics={this.state.pics} title ={this.state.searchTerm}  /> } />
+            <Route exact path="/" render={ () => <Home pics={this.state.pics} title ={this.state.defaultTerm}  /> } />
             <Route path="/puppies" render={ () => <Puppies pics={this.state.puppyPics} /> } />
             <Route path="/dogs" render={ () => <Dogs pics={this.state.dogPics}/>} />
             <Route path="/cats" render={ () => <Cats pics = {this.state.catPics}/> } />
             {/* exact path to /results is necessary in case the user hits submit in search without providing a search term */}
             <Route exact path="/results" render={ () => <Results pics = {this.state.searchPics} title ={this.state.searchTerm}/> } />
-            <Route path="/results/:query" render={ () => <Results pics={this.state.pics} title ={this.state.searchTerm}/> } />
+            <Route path="/results/:query" render={ () => <Results pics={this.state.searchPics} title ={this.state.searchTerm}/> } />
             {/* FourOFour is for URLs that do not match a route */}
             <Route component={FourOFour}/>
           </Switch>

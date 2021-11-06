@@ -3,6 +3,7 @@ import React from 'react';
 import DogPaw from './DogPaw';
 import NotFound from './NotFound';
 import Photo from './Photo'
+import Loading from './Loading'
 
 
 const Photos = (props) => {
@@ -12,13 +13,15 @@ const Photos = (props) => {
   const pawColor3 = '#4c440a';
   const pawHeight = 80;
   const pawWidth = 80; 
-  
+ console.log(props)
   const results = props.pics;
   let photo;
   if (results.length > 0) {
     photo = results.map(pic =>
       <Photo url={`https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`} link={`https://www.flickr.com/photos/${pic.owner}/${pic.id}`} key={pic.id} />
       );
+  } else if (results.length === 0 && props.unDefined) {
+    photo = <Loading />
   } else {
     photo = <NotFound />
   }
