@@ -5,6 +5,8 @@ import {
   Switch
 } from 'react-router-dom';
 import axios from 'axios';
+import { trackPromise } from 'react-promise-tracker';
+
 
 
 //App component imports
@@ -19,6 +21,9 @@ import Puppies from './components/Puppies';
 import Results from './components/Results';
 import FourOFour from './components/FourOFour';
 import flickrLogoBW from './components/flickr-logo-bnw.png'
+//Loading and LoadingBlank are loading indicators that use the loading indicator library.
+import Loading from './components/Loading'
+import LoadingBlank from './components/LoadingBlank'
 
 
 //App component is responsible for storing and updating state, running queries 
@@ -36,7 +41,7 @@ export default class App extends Component {
         dogPics: [],
         catPics: [],
         searchPics: [],
-        loading: true
+        // loading: true
       };
     }
 
@@ -50,17 +55,18 @@ export default class App extends Component {
     }
     //getPics for Home route initially - default set to 'pets'
     getPics( query ='pets'  ) {
+      trackPromise(
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({ 
            pics: response.data.photos.photo,
-           loading: false,
+          //  loading: false,
            defaultTerm: 'pets'
         });
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error);
-      });
+      }));
     }
     //getPuppies route query
     getPuppies( query = 'puppies' ) {
@@ -68,7 +74,7 @@ export default class App extends Component {
       .then(response => {
         this.setState({ 
            puppyPics: response.data.photos.photo,
-           loading: false
+           //loading: false
         });
       })
       .catch(error => {
@@ -81,7 +87,7 @@ export default class App extends Component {
       .then(response => {
         this.setState({ 
            dogPics: response.data.photos.photo,
-           loading: false
+           //loading: false
         });
       })
       .catch(error => {
@@ -94,7 +100,7 @@ export default class App extends Component {
       .then(response => {
         this.setState({ 
            catPics: response.data.photos.photo,
-           loading: false
+           //loading: false
         });
       })
       .catch(error => {
@@ -103,28 +109,28 @@ export default class App extends Component {
     }
     //searchPics is called when the search term is entered into and run in the searchForm.  State is updated so that both pics and searchPics are updated to reflect the photos from the query of searchForm.
     //searchTerm is set to query so that it can be saved in state and used to update the title of Photos.
+    //trackPromise is a method used by searchPics to render the Loading.js component until images from the query are loaded.
     searchPics( query = 'pets') {
+      trackPromise(
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({ 
            //pics: response.data.photos.photo,
            searchPics: response.data.photos.photo,
-           loading: false,
+           //loading: false,
            searchTerm: query,
         });
       })
       .catch(error => { 
         console.log('Error fetching and parsing data', error);
-      });
+      }));
     }
+    
   
   render() {
     //When the history API is logged to the console, it gives you an object that gives information - the length and a bunch of other things I don't understand. 
     //render is called 5x when the app loads because there are 5 API calls.  This means that SearchForm will run 5x when the app is rendered.
-    //console.log(this.state)
-    //console.log(`pics.length: ${this.state.pics.length}`);
-    //require('log-timestamp');
-    //console.log(`seachPics.length: ${this.state.searchPics.length}`);
+    
     
     return (
     <BrowserRouter>
@@ -136,13 +142,18 @@ export default class App extends Component {
         
         {/* Nav element contains links to different routes Puppies, Dogs and Cats */}
         <Nav />
-
+        {/* This loading indicator is without text, I used it as an experiment and liked the result. */}
+        <LoadingBlank />
         {
           //Logic for loading page - initial state is loading, as is any time that the searchTerm is undefined, otherwise, the appropriate route is rendered.
-          (this.state.loading)  
-         //|| (this.state.searchPics.length === 0) 
-          ? <p className="loading">Loading...</p>
-          :
+          
+        (this.state.loading)  
+        && (this.state.searchPics.length === 0) 
+        ? 
+        //the Loading component shows-up as a result of the TrackPromise method added to the axios call.   It comes from the react promise tracker library.
+        <Loading /> 
+        :
+          
           <Switch>
           {/* The home route "/" renders the home view and dynamically updates the title based on the search term */}
             <Route exact path="/" render={ () => <Home pics={this.state.pics} title ={this.state.defaultTerm}  /> } />

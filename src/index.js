@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import { usePromiseTracker } from "react-promise-tracker";
+//import Loading from './components/Loading'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    {/* <Loading /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
