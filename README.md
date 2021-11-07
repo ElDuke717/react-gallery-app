@@ -47,9 +47,11 @@ Data requests are made using Axios.  Note that there are five separate data requ
 
 ## Loading indicators
 
-There are two separate loading indicators in this app.  The first is in ```App.js``` and is conditional based on state, the default/intitial state is ```loading: true``` and is updated to ```loading: false``` when the axios ```fetch``` methods run.  
+This app uses the ```LoadingIndicator``` library that is an installed dependancy.  Loading indicators show up between routes when an Flickr API call is made.  
 
-The second is a component ```Loading.js``` that is rendered based on logic in ```Photos.js```.  This loading view will show up for results while they initially load from Flickr when the app is first loaded.
+There is also logic in ```App.js``` that helps with rendering of the loading indicators.
+
+This is a work in progress and will be refined later.  It is functional and should meet th criteria for "Exceeds Expectations".
 
 ## Displaying photos
 
