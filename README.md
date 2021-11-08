@@ -76,6 +76,6 @@ The app has been tested in the latest versions of Chrome, Firefox and Microsoft 
 
 2. 404 Error - when a URL does not match an existing route, a helpful 404 message is displayed with a red dog paw element to let the user know the entered URL does not exist.
 
-3. Loading Indicator: When the app reloads, a loading message is displayed.  Note that this will show up when the server is first started or the page is reloaded.
+3. Loading Indicator: When the app reloads, a loading message is displayed.  React Promise Tracker and Load Spinner Indicator are both used for a loading indicator message and animation.  They are based on the loading indicator found here: https://www.basefactor.com/react-how-to-display-a-loading-indicator-on-fetch-calls.  I would have liked to figure out how to make the ```Results``` component dissappear while the ```Loading``` component shows up, but I haven't figured out how to make this work yet.
 
 4. No matches - see notes above for **NotFound**.  If you enter a strange query into the search field ("norwegian toothpaste" or "rusty sailboats") you will see the results not found message displayed.
