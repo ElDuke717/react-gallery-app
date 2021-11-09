@@ -48,6 +48,7 @@ export default class App extends Component {
       this.getPuppies( 'puppies' );
       this.getDogs('dogs');
       this.getCats('cats');
+      //Should only get run when searchForm is run.
       //this.searchPics('pets' );
     }
     //getPics for Home route initially - default set to 'pets'
@@ -150,7 +151,7 @@ export default class App extends Component {
         <Nav />
      
         {
-          //Logic for loading page - initial state is loading, as is any time that the searchTerm is undefined, otherwise, the appropriate route is rendered. 
+          //Logic for loading page - initial state is loading, as is any time that the searchTerm is undefined, otherwise, the appropriate route is rendered.   This is not usually used due to the Loading component functionality.
         (this.state.loading)  
         && (this.state.searchPics.length === 0)  && (this.state.searchLoading)
         ?         

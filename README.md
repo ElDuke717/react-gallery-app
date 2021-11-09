@@ -47,6 +47,7 @@ Data requests are made using Axios.  Note that there are five separate data requ
 
 ## Loading indicators
 
+The axios HTTP request for ```searchPics``` updates state to render a ```Loading``` component that indicates if the app is doing an HTTP request to the Flickr API.  When the promise is complete, the state changes and the ```Photos``` component of ```Results``` is shown.
 
 
 ## Displaying photos

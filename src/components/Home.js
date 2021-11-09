@@ -11,6 +11,7 @@ class Home extends Component {
         <h3>This is a fun tool for looking up pet pictures on the photo-sharing site,</h3>
         <a href={`https://www.flickr.com`} target="_blank " rel="noopener noreferrer"><img src={flickrLogo} className ="flickr-logo" alt="Flickr logo"/></a>
         <p>It uses the Flickr API to find photos of pets or whatever you put in the search box above.</p>
+        {/* The search props is helps determine if the Axios call is complete or not. */}
         {
           (this.props.petPics === true)
           ?         
