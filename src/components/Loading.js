@@ -19,7 +19,7 @@ const Loading = () => {
           <DogPaw width={pawWidth} height={pawHeight} fill={pawColor} />
           <DogPaw width={pawWidth} height={pawHeight} fill={pawColor1} />
           </header>
-          <p className="loading-before-results">Loading...</p>
+          <p className="loading-before-results">Loading your pics...</p>
           <footer className="results-footer">
           <DogPaw width={pawWidth} height={pawHeight} fill={pawColor} />
           <DogPaw width={pawWidth} height={pawHeight} fill={pawColor1} />

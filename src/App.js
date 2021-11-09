@@ -149,13 +149,13 @@ export default class App extends Component {
         {/* Nav element contains links to different routes Puppies, Dogs and Cats */}
         <Nav />
      
-        {/* {
+        {
           //Logic for loading page - initial state is loading, as is any time that the searchTerm is undefined, otherwise, the appropriate route is rendered. 
         (this.state.loading)  
         && (this.state.searchPics.length === 0)  && (this.state.searchLoading)
         ?         
         <p className="loading">Loading...</p>  
-        : */}
+        :
           
           <Switch>
           {/* The home route "/" renders the home view and dynamically updates the title based on the search term */}
@@ -169,7 +169,7 @@ export default class App extends Component {
             {/* FourOFour is for URLs that do not match a route */}
             <Route component={FourOFour}/>
           </Switch>
-        {/* } */}
+        }
       </div>
       </BrowserRouter>
     );
