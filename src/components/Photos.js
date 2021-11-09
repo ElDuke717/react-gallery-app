@@ -2,8 +2,8 @@
 import React from 'react';
 import DogPaw from './DogPaw';
 import NotFound from './NotFound';
-import Photo from './Photo'
-import Loading from './Loading'
+import Photo from './Photo';
+
 
 
 const Photos = (props) => {
@@ -21,7 +21,7 @@ const Photos = (props) => {
       <Photo url={`https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`} link={`https://www.flickr.com/photos/${pic.owner}/${pic.id}`} key={pic.id} />
       );
   } else if (results.length === 0 && props.unDefined) {
-    photo = <Loading />
+    photo = <p className ="loading" >Loading your pics...</p>
   } else {
     photo = <NotFound />
   }
