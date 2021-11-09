@@ -52,6 +52,9 @@ export default class App extends Component {
     }
     //getPics for Home route initially - default set to 'pets'
     getPics( query ='pets'  ) {
+      this.setState(({
+        petsLoading:true,
+      }))
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({ 
@@ -59,6 +62,9 @@ export default class App extends Component {
            loading: false,
            defaultTerm: 'pets'
         });
+        this.setState(({
+          petsLoading: false
+        }))
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error);
@@ -153,7 +159,7 @@ export default class App extends Component {
           
           <Switch>
           {/* The home route "/" renders the home view and dynamically updates the title based on the search term */}
-            <Route exact path="/" render={ () => <Home pics={this.state.pics} title ={this.state.defaultTerm}  /> } />
+            <Route exact path="/" render={ () => <Home pics={this.state.pics} title ={this.state.defaultTerm}  petPics = {this.state.petsLoading} /> } />
             <Route path="/puppies" render={ () => <Puppies pics={this.state.puppyPics} /> } />
             <Route path="/dogs" render={ () => <Dogs pics={this.state.dogPics}/>} />
             <Route path="/cats" render={ () => <Cats pics = {this.state.catPics}/> } />

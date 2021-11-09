@@ -7,7 +7,6 @@ class Results extends Component {
   
   
   render() {
-      console.log(this.props);
     return (
       <div className="main-content home">
           {/*The unDefined prop is used to determine if the title is undefined, if it is, then it's used for the logic of the loading page.  */}
