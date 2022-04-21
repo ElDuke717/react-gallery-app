@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-gallery-app/static/css/main.51676e0f.chunk.css",
+    "main.js": "/react-gallery-app/static/js/main.6878ca9a.chunk.js",
+    "main.js.map": "/react-gallery-app/static/js/main.6878ca9a.chunk.js.map",
+    "runtime-main.js": "/react-gallery-app/static/js/runtime-main.8664cf16.js",
+    "runtime-main.js.map": "/react-gallery-app/static/js/runtime-main.8664cf16.js.map",
+    "static/js/2.c24649ff.chunk.js": "/react-gallery-app/static/js/2.c24649ff.chunk.js",
+    "static/js/2.c24649ff.chunk.js.map": "/react-gallery-app/static/js/2.c24649ff.chunk.js.map",
+    "static/js/3.7ecad9be.chunk.js": "/react-gallery-app/static/js/3.7ecad9be.chunk.js",
+    "static/js/3.7ecad9be.chunk.js.map": "/react-gallery-app/static/js/3.7ecad9be.chunk.js.map",
+    "index.html": "/react-gallery-app/index.html",
+    "static/css/main.51676e0f.chunk.css.map": "/react-gallery-app/static/css/main.51676e0f.chunk.css.map",
+    "static/js/2.c24649ff.chunk.js.LICENSE.txt": "/react-gallery-app/static/js/2.c24649ff.chunk.js.LICENSE.txt",
+    "static/media/flickr-logo-bnw.f4cc27bb.png": "/react-gallery-app/static/media/flickr-logo-bnw.f4cc27bb.png",
+    "static/media/flickr-logo-color.c419f2ac.png": "/react-gallery-app/static/media/flickr-logo-color.c419f2ac.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8664cf16.js",
+    "static/js/2.c24649ff.chunk.js",
+    "static/css/main.51676e0f.chunk.css",
+    "static/js/main.6878ca9a.chunk.js"
+  ]
+}
