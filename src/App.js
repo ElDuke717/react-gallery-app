@@ -161,7 +161,7 @@ export default class App extends Component {
               <Switch>
                 {/* The home route "/" renders the home view and dynamically updates the title based on the search term */}
                 <Route exact path="/react-gallery-app" render={() => <Home pics={this.state.pics} title={this.state.defaultTerm} petPics={this.state.petsLoading} />} />
-                {/* <Route path="/" render={() => <Home pics={this.state.pics} title={this.state.defaultTerm} petPics={this.state.petsLoading} />} /> */}
+                <Route path="/" render={() => <Home pics={this.state.pics} title={this.state.defaultTerm} petPics={this.state.petsLoading} />} />
                 <Route path="/puppies" render={() => <Puppies pics={this.state.puppyPics} />} />
                 <Route path="/dogs" render={() => <Dogs pics={this.state.dogPics} />} />
                 <Route path="/cats" render={() => <Cats pics={this.state.catPics} />} />
