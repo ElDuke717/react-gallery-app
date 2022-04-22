@@ -2,7 +2,7 @@ import React from 'react';
 import DogPaw from './DogPaw';
 
 const FourOFour = () => {
-  const pawColor = 'hsl(200, 98%, 37%)';
+  const pawColor = 'hsl(0, 98%, 37%)';
   const pawHeight = 100;
   const pawWidth = 100;
   return (
